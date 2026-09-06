@@ -39,3 +39,18 @@ while True:
     value = sensor.read_u16()
     print("Water level reading:", value)
     utime.sleep(0.2)  # Delay to prevent console flooding
+
+## 📊 Test Results & Telemetry
+
+Below is the raw ADC output logged via Thonny REPL demonstrating the immediate jump in signal strength upon water contact:
+
+```text
+Water level reading: 0    <-- Dry / Ambient Baseline Noise (0 - 224)
+Water level reading: 48
+Water level reading: 64
+Water level reading: 80
+...
+Water level reading: 24694 <-- Liquid Contact / Submersion Spike
+Water level reading: 29911
+Water level reading: 30599
+Water level reading: 31655
