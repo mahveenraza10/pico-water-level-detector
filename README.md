@@ -21,16 +21,6 @@ The sensor utilizes a series of exposed, parallel copper traces. As water bridge
 | **Water Sensor Positive (+)**| 3.3V Rail | Powers the sensor traces |
 | **Water Sensor Ground (-)**  | GND | Completes circuit / 0V reference |
 
-### Circuit Schematic
-+-------------------------------------+
-|        Raspberry Pi Pico            |
-|                                     |
-|  3.3V (OUT) ------------------> (+) |
-|  GND -------------------------> (-) |  [ Water Sensor ]
-|  GP28 (ADC) <------------------ (S) |
-+-------------------------------------+
-
- ---
 
 ## 💻 Firmware Implementation
 
