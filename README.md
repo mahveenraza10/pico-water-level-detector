@@ -22,3 +22,30 @@ The sensor utilizes a series of exposed, parallel copper traces. As water bridge
 | **Water Sensor Ground (-)**  | GND | Completes circuit / 0V reference |
 
 ### Circuit Schematic
++-------------------------------------+
+|        Raspberry Pi Pico            |
+|                                     |
+|  3.3V (OUT) ------------------> (+) |
+|  GND -------------------------> (-) |  [ Water Sensor ]
+|  GP28 (ADC) <------------------ (S) |
++-------------------------------------+
+
+ ---
+
+## 💻 Firmware Implementation
+
+### Base ADC Reader (`firmware/main.py`)
+Reads raw 16-bit unsigned integers (`0` to `65535`) from channel ADC28 at 200ms intervals.
+
+```python
+import machine
+import utime
+
+# Initialize ADC on GP28
+sensor = machine.ADC(28)
+
+while True:
+    # Read the 16-bit analog value
+    value = sensor.read_u16()
+    print("Water level reading:", value)
+    utime.sleep(0.2)  # Delay to prevent console flooding
